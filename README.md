@@ -8,11 +8,13 @@ graph TD;
     C --> A;
 
 
+```dot
 digraph G {
     A -> B;
     B -> C;
     C -> A;
 }
+
 
 ```ditaa
 +--------+   +-------+    +-------+
