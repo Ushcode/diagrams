@@ -44,3 +44,4 @@ gantt
     Add gantt diagram to demo page      :20h
     Add another diagram to demo page    :48h
 ```
+<!--![Diagram Image Link](./onshore.puml)-->
