@@ -1,0 +1,32 @@
+@startuml
+box "Input" #LightGreen
+participant " User inputs a desired chemical to manufacture" as In
+end box
+
+box "Process" #LightBlue
+  database "Deep Chemical Space" as DCS
+  participant "Possible Chemical Routes KG" as KG1
+  database "Manufacturing Partners" as Parts
+  participant "Abstract Capabilities KG" as KG2
+  database "Metrics for supply chain" as Met
+  participant "Possible Supply Chains KG" as KG3
+
+ 
+end box
+
+autonumber
+  
+  DCS -> KG1: CDI tools to identify routes
+  KG1-> KG3: filter physically possible chemical routes (no explosive intermediearies etc.)
+  Parts -> KG2: Supplier capabilities added to KG.\nShare data on molecular\nstructures, manufacturing processes, etc.
+  note over KG1: These include reactants, reagents,\n conditions, times, products .
+  KG2 -> KG3: Pair possible routes with routes\navailable with capabilities / supply chains
+  Met -> KG3: add metrics on cost / \nvulnerability etc. Asess and give weights
+
+box "Output" #LightGreen
+  participant "User is presented with possible supply chains" as Out
+  note over Out: The format of this is to be decided.\nCould be a simple list or a graph\nvisualised path or a heatmap of\nsuppliers for example.
+end box
+
+
+@enduml
